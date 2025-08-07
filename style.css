@@ -767,5 +767,7 @@ left: 78%;
   justify-content: center;
   gap: 20px;
 }
-
+.logo-image{
+  width: 90%;
+}
   }
