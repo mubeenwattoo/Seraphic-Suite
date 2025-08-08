@@ -168,30 +168,40 @@
     window.addEventListener('resize', handleHeroResize);
   </script>
 
-  <script>
-    const downloadSection = document.querySelector('.downloads-section');
-    const startOffset = window.innerHeight * 0.8;
-    const scrollRange = 300;
-    const maxTranslateY = -200;
+ 
 
-    window.addEventListener('scroll', () => {
-      const rect = downloadSection.getBoundingClientRect();
-      const top = rect.top;
 
-      if (top < startOffset && top > startOffset - scrollRange) {
-        const progress = (startOffset - top) / scrollRange;
-        const translateY = -progress * Math.abs(maxTranslateY);
-        downloadSection.style.transform = `translateY(${translateY}px)`;
-        downloadSection.classList.add('moving');
-      } else if (top <= startOffset - scrollRange) {
-        downloadSection.style.transform = `translateY(${maxTranslateY}px)`;
-        downloadSection.classList.add('moving');
-      } else {
-        downloadSection.style.transform = `translateY(0px)`;
-        downloadSection.classList.remove('moving');
-      }
-    });
-  </script>
+<script>
+const downloadSection = document.querySelector('.downloads-section');
+
+const startOffset = window.innerHeight * 0.8 + 390;
+
+const speed = 0.5; 
+
+window.addEventListener('scroll', () => {
+  const rect = downloadSection.getBoundingClientRect();
+  const top = rect.top;
+  const scrollY = window.scrollY;
+
+  const startScroll = scrollY + top - startOffset;
+
+  if (scrollY >= startScroll) {
+    const distanceScrolled = scrollY - startScroll;
+
+    const translateY = -distanceScrolled * speed;
+
+    downloadSection.style.transform = `translateY(${translateY}px)`;
+    downloadSection.classList.add('moving');
+  } else {
+    downloadSection.style.transform = `translateY(0px)`;
+    downloadSection.classList.remove('moving');
+  }
+});
+</script>
+
+
+
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const heading = document.querySelector(".divider");
