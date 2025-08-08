@@ -11,6 +11,10 @@ html, body{
      font-family: "Roboto Condensed", sans-serif;
      overflow-x: hidden;
 }
+body{
+  margin: 0;
+  padding-top: 9%;
+}
 
 .flex-between{
 display: flex;
@@ -19,14 +23,22 @@ justify-content: space-between;
 }
 
 
-.desktop-banner{
+.desktop-banner,
+.mobile-banner {
   width: 100%;
-    height: 143px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999; 
+}
+
+.desktop-banner{
+  display: block;
+  width: 100%;
 }
 .mobile-banner{
   display: none;
    width: 100%;
-    height: 147px;
 }
 .ui-preview-mobile{
   display: none;
@@ -41,7 +53,7 @@ justify-content: space-between;
     transition: height 0.3s ease-in-out;
     position: relative;
     z-index: 10;
-    margin-top: -1.2rem;
+    margin-top: -1.4rem;
 }
 .hero-content{
     display: flex;
@@ -74,8 +86,6 @@ text-align: center;
       color: #ffffff;
       text-decoration: underline;
     }
-
-  
 
     .description2 {
       margin: 20px 0;
@@ -114,12 +124,22 @@ padding: 0 60px;
       width: 1039px;
         position: relative;
         margin-top: -6.5rem;
+        overflow: hidden;
     }
     .ui-preview-desktop{
       width: 100%;
+      position: relative;
     }
   
-
+.hero-video {
+  position: absolute;
+  top: 37.4%;
+  left: 24.9%;
+  width: 73%;
+  height: auto; 
+  max-width: 100%;
+  object-fit: cover;
+}
 
 
 
@@ -133,6 +153,8 @@ padding: 0 60px;
 .yt-videos-inner{
   background-color: #D9D9D9;
   padding: 2rem 0;
+  border-top-right-radius: 8px;
+border-bottom-right-radius: 8px;
 }
 .divider {
   display: flex;
@@ -324,24 +346,15 @@ line-height: 16px;
 
   
 }
-
-
     @media(max-width:1612px){
       .description, .donation-note {
-  
-
-
  max-width: 670px;
-
 }
-
 .downloads-links {
   max-width: 706px;
   justify-content: space-between;
  
 }
-
-
 .separator2{
   height: 17px;
 
@@ -357,11 +370,7 @@ line-height: 16px;
  
 }
 .user-manual {
-  
   max-width: 550px;
- 
-
-
 }
 .downloads-links{
 align-items: start;
@@ -406,6 +415,7 @@ line-height: 9px;
     }
 
     .hero-section{
+    margin-top: -1.1rem;
  
     height: 350px;
     min-height: 350px;
@@ -419,64 +429,21 @@ line-height: 9px;
 
     }
 
-    @media(max-width:768px){
-    
-
-  .left-side-icons a svg{
-      width: 15px;
-    }
-      .icons, .left-side-icons{
-       
-        gap: 1rem;
-    }
-    .right-side-icons{
-   
-    gap: 1rem;
-}
-
-    
-    .slider{
-      width: 30px;
-    }
-         .tooltip-box-3{
-left: 51% !important;
-
-
-}
-
-
-
-
-    .box-svg-3{
-left: 45% !important;
-    }
-
-
-     .box-svg-4{
-left: 74% !important;
-
-
-
-
-  }
-}
+ 
     @media(max-width:1024px){
 
    .list {
       margin: 20px 20px 20px 20px;
-     
-
     }
     .hero-left-side {
       width: 45%;
-     
-      
     }
     .hero-right-side{
   margin-top: -2rem;
         
     }
     .hero-section{
+    margin-top: -0.8rem;
  
     height: 430px;
     min-height: 430px;
@@ -485,7 +452,10 @@ left: 74% !important;
     }
 
     
-    @media(max-width:806px){
+@media(max-width:806px){
+      body{
+  padding-top: 38.5%;
+}
 .desktop-banner, .ui-preview-desktop{
   display: none;
 }
@@ -498,12 +468,22 @@ left: 74% !important;
   height: auto;
 }
 
+.hero-video {
+  top: 33.8%;
+  left: 7%;
+  width: 86.8%;
+ 
+}
+
+
  .tooltip-box-3{
 left: 64%;
 
 }
 
       .hero-section{
+    margin-top: -2.4rem;
+padding-top: 1rem;
         height: auto !important;
         padding-bottom: 0;
       }
@@ -548,9 +528,6 @@ left: 64%;
 .user-manual{
   width: 79%;
 }
-
-
-
    .hero-left-side h2,  .highlight, .description2 {
 font-size: 12.6586px;
 line-height: 15px;
@@ -561,25 +538,13 @@ line-height: 15px;
    
 font-size: 12.1195px;
 line-height: 20px;
-
-
-
-
     }
     .footer {
-
-
 font-size: 10px;
 line-height: 12px;
-
-
-
     }
 
        .description, .donation-note {
-  
-
-
 font-size: 12px;
 
 }
